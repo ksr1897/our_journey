@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Journey so far</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+            background: linear-gradient(-45deg, #d8c8f7, #e6ddff, #cfc3f2);
+            background-size: 250% 250%;
+            animation: bgFlow 20s ease infinite;
+            padding: 80px 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes bgFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Background Flowers */
+        .flower-bg {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.18;
+            animation: float 22s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(8deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .f1 { top:5%; left:10%; }
+        .f2 { top:15%; left:80%; }
+        .f3 { top:25%; left:30%; }
+        .f4 { top:40%; left:70%; }
+        .f5 { top:55%; left:20%; }
+        .f6 { top:65%; left:50%; }
+        .f7 { top:75%; left:85%; }
+        .f8 { top:85%; left:35%; }
+        .f9 { top:35%; left:90%; }
+        .f10 { top:60%; left:5%; }
+
+        /* Card */
+        .container {
+            width: 65%;
+            max-width: 850px;
+            margin: auto;
+            padding: 50px;
+            border-radius: 30px;
+            background: #ffddee; /* unchanged */
+            opacity: 0;
+            border: 3px solid #e88fb0; /* unchanged */
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: opacity 2s ease;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #7a2f52;
+            margin-bottom: 25px;
+            opacity: 0;
+            transition: all 2s ease;
+        }
+
+        .move-up {
+            transform: translateY(-20px);
+        }
+
+        .main-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            opacity: 0;
+            transition: opacity 8s ease;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 14px 32px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #ff758c, #ff9eb3);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        .sentence {
+            opacity: 0;
+            margin-top: 20px;
+            font-size: 18px;
+            transition: opacity 3s ease;
+        }
+
+        .sentence.show {
+            opacity: 1;
+        }
+
+        .flower-end {
+            margin-top: 25px;
+            font-size: 30px;
+            opacity: 0;
+            transform: scale(0.6);
+            transition: opacity 2s ease, transform 2s ease;
+        }
+
+        .flower-end.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="flower-bg f1">🌸</div>
+<div class="flower-bg f2">🌺</div>
+<div class="flower-bg f3">🌸</div>
+<div class="flower-bg f4">🌺</div>
+<div class="flower-bg f5">🌸</div>
+<div class="flower-bg f6">🌺</div>
+<div class="flower-bg f7">🌸</div>
+<div class="flower-bg f8">🌺</div>
+<div class="flower-bg f9">🌸</div>
+<div class="flower-bg f10">🌺</div>
+
+<div class="container" id="card">
+    <h1 id="heading">Our Journey so far: Work In Progress</h1>
+
+    <div class="main-text" id="mainText">
+        Hi..<br><br> 
+Its a little over a month now. We had conversations that stretched across emotion, ease, practicality and a few bumps.. Two different systems trying to understand each other.<br><br>
+        I read somewhere that compatibility is not about similarity — it is about alignment in direction.
+    </div>
+
+    <button id="btn" onclick="revealSentences()">What I'm Still Figuring Out</button>
+
+    <div id="sentencesContainer"></div>
+    <div class="flower-end" id="flowerEnd">🌸</div>
+</div>
+
+<script>
+    const card = document.getElementById("card");
+    const heading = document.getElementById("heading");
+    const mainText = document.getElementById("mainText");
+    const button = document.getElementById("btn");
+
+    window.onload = function() {
+
+        // 1 sec after load → card fades in (2 sec)
+        setTimeout(() => {
+            card.style.opacity = 1;
+        }, 1000);
+
+        // 1 sec after card appears → heading appears
+        setTimeout(() => {
+            heading.style.opacity = 1;
+        }, 3000);
+
+        // 2 sec later → heading moves up
+        setTimeout(() => {
+            heading.classList.add("move-up");
+        }, 5000);
+
+        // 1 sec gap → main text fades in (8 sec)
+        setTimeout(() => {
+            mainText.style.opacity = 1;
+        }, 6000);
+
+        // 3 sec after text finishes → button fades in (2 sec)
+        setTimeout(() => {
+            button.style.opacity = 1;
+        }, 17000);
+    }
+
+    const sentences = [
+        "I am still learning how to balance hope and fear.",
+        "How to move without fear of future regret.",
+        "And how two independent worlds can build something steady."
+    ];
+
+    function revealSentences() {
+        const container = document.getElementById("sentencesContainer");
+        const flower = document.getElementById("flowerEnd");
+
+        container.innerHTML = "";
+        flower.classList.remove("show");
+
+        sentences.forEach((text, index) => {
+            const p = document.createElement("div");
+            p.classList.add("sentence");
+            p.innerText = text;
+            container.appendChild(p);
+
+            setTimeout(() => {
+                p.classList.add("show");
+            }, index * 3000);
+        });
+
+        setTimeout(() => {
+            flower.classList.add("show");
+        }, sentences.length * 3000 + 1000);
+    }
+</script>
+
+</body>
+</html>
