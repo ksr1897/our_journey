@@ -1,158 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Our Journey so far</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Journey so far</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
-            background: linear-gradient(-45deg, #d8c8f7, #e6ddff, #cfc3f2);
-            background-size: 250% 250%;
-            animation: bgFlow 20s ease infinite;
-            padding: 60px 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
+<style>
 
-        @keyframes bgFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+* {
+    box-sizing: border-box;
+}
 
-        /* Floating Flowers */
-        .flower-bg {
-            position: absolute;
-            font-size: 36px;
-            opacity: 0.15;
-            animation: float 22s ease-in-out infinite;
-            pointer-events: none;
-        }
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #d8c8f7, #e6ddff, #cfc3f2);
+    background-size: 250% 250%;
+    animation: bgFlow 20s ease infinite;
+    padding: 40px 15px;
+    overflow-x: hidden;
+    position: relative;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-40px) rotate(8deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
+@keyframes bgFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        .f1 { top:5%; left:10%; }
-        .f2 { top:15%; left:80%; }
-        .f3 { top:25%; left:30%; }
-        .f4 { top:40%; left:70%; }
-        .f5 { top:55%; left:20%; }
-        .f6 { top:65%; left:50%; }
-        .f7 { top:75%; left:85%; }
-        .f8 { top:85%; left:35%; }
-        .f9 { top:35%; left:90%; }
-        .f10 { top:60%; left:5%; }
+/* Floating Flowers */
+.flower-bg {
+    position: absolute;
+    font-size: 32px;
+    opacity: 0.15;
+    animation: float 22s ease-in-out infinite;
+    pointer-events: none;
+}
 
-        /* Card */
-        .container {
-            width: 100%;
-            max-width: 850px;
-            margin: auto;
-            padding: 50px;
-            border-radius: 30px;
-            background: #ffddee;
-            border: 3px solid #e88fb0;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 2s ease;
-        }
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(6deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
 
-        h1 {
-            font-size: 32px;
-            color: #7a2f52;
-            margin-bottom: 25px;
-            opacity: 0;
-            transition: all 2s ease;
-        }
+.f1 { top:5%; left:10%; }
+.f2 { top:15%; left:80%; }
+.f3 { top:25%; left:30%; }
+.f4 { top:40%; left:70%; }
+.f5 { top:55%; left:20%; }
+.f6 { top:65%; left:50%; }
+.f7 { top:75%; left:85%; }
+.f8 { top:85%; left:35%; }
+.f9 { top:35%; left:90%; }
+.f10 { top:60%; left:5%; }
 
-        .move-up {
-            transform: translateY(-20px);
-        }
+/* Card */
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 40px 25px;
+    border-radius: 25px;
+    background: #ffddee;
+    border: 3px solid #e88fb0;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
 
-        .main-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #444;
-            opacity: 0;
-            transition: opacity 8s ease;
-        }
+h1 {
+    font-size: 26px;
+    color: #7a2f52;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: all 2s ease;
+}
 
-        button {
-            margin-top: 30px;
-            padding: 14px 32px;
-            font-size: 16px;
-            border: none;
-            border-radius: 30px;
-            background: linear-gradient(45deg, #ff758c, #ff9eb3);
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            opacity: 0;
-            transition: opacity 2s ease;
-        }
+.move-up {
+    transform: translateY(-15px);
+}
 
-        .sentence {
-            opacity: 0;
-            margin-top: 20px;
-            font-size: 18px;
-            transition: opacity 3s ease;
-        }
+.main-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+    opacity: 0;
+    transition: opacity 8s ease;
+}
 
-        .sentence.show {
-            opacity: 1;
-        }
+button {
+    margin-top: 25px;
+    padding: 12px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff758c, #ff9eb3);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 2s ease;
+}
 
-        .flower-end {
-            margin-top: 25px;
-            font-size: 28px;
-            opacity: 0;
-            transform: scale(0.6);
-            transition: opacity 2s ease, transform 2s ease;
-        }
+.sentence {
+    opacity: 0;
+    margin-top: 18px;
+    font-size: 16px;
+    transition: opacity 3s ease;
+}
 
-        .flower-end.show {
-            opacity: 1;
-            transform: scale(1);
-        }
+.sentence.show {
+    opacity: 1;
+}
 
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 40px 15px;
-            }
+.flower-end {
+    margin-top: 20px;
+    font-size: 26px;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 2s ease, transform 2s ease;
+}
 
-            .container {
-                padding: 30px 20px;
-                border-radius: 20px;
-            }
+.flower-end.show {
+    opacity: 1;
+    transform: scale(1);
+}
 
-            h1 {
-                font-size: 22px;
-            }
+/* Desktop adjustments */
+@media (min-width: 769px) {
+    body {
+        padding: 60px 20px;
+    }
 
-            .main-text,
-            .sentence {
-                font-size: 16px;
-            }
+    h1 {
+        font-size: 32px;
+    }
 
-            button {
-                width: 100%;
-                font-size: 15px;
-            }
+    .main-text,
+    .sentence {
+        font-size: 18px;
+    }
 
-            .flower-bg {
-                font-size: 26px;
-            }
-        }
-    </style>
+    .container {
+        padding: 50px;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -169,76 +165,64 @@
 <div class="flower-bg f10">🌺</div>
 
 <div class="container" id="card">
-    <h1 id="heading">Our Journey so far: Work In Progress</h1>
+<h1 id="heading">Our Journey so far: Work In Progress</h1>
 
-    <div class="main-text" id="mainText">
-        Hi..<br><br>
-        Its a little over a month now. We had conversations that stretched across emotion, ease, practicality and a few bumps.. Two different systems trying to understand each other.<br><br>
-        I read somewhere that compatibility is not about similarity — it is about alignment in direction.
-    </div>
+<div class="main-text" id="mainText">
+Hi..<br><br>
+Its a little over a month now. We had conversations that stretched across emotion, ease, practicality and a few bumps.. Two different systems trying to understand each other.<br><br>
+I read somewhere that compatibility is not about similarity — it is about alignment in direction.
+</div>
 
-    <button id="btn" onclick="revealSentences()">What I'm Still Figuring Out</button>
+<button id="btn" onclick="revealSentences()">What I'm Still Figuring Out</button>
 
-    <div id="sentencesContainer"></div>
-    <div class="flower-end" id="flowerEnd">🌸</div>
+<div id="sentencesContainer"></div>
+<div class="flower-end" id="flowerEnd">🌸</div>
 </div>
 
 <script>
-    const card = document.getElementById("card");
-    const heading = document.getElementById("heading");
-    const mainText = document.getElementById("mainText");
-    const button = document.getElementById("btn");
 
-    window.onload = function() {
-        setTimeout(() => {
-            card.style.opacity = 1;
-        }, 1000);
+const card = document.getElementById("card");
+const heading = document.getElementById("heading");
+const mainText = document.getElementById("mainText");
+const button = document.getElementById("btn");
 
-        setTimeout(() => {
-            heading.style.opacity = 1;
-        }, 3000);
+window.onload = function() {
+    setTimeout(() => { card.style.opacity = 1; }, 1000);
+    setTimeout(() => { heading.style.opacity = 1; }, 3000);
+    setTimeout(() => { heading.classList.add("move-up"); }, 5000);
+    setTimeout(() => { mainText.style.opacity = 1; }, 6000);
+    setTimeout(() => { button.style.opacity = 1; }, 17000);
+}
 
-        setTimeout(() => {
-            heading.classList.add("move-up");
-        }, 5000);
+const sentences = [
+    "I am still learning how to balance hope and fear.",
+    "How to move without fear of future regret.",
+    "And how two independent worlds can build something steady."
+];
 
-        setTimeout(() => {
-            mainText.style.opacity = 1;
-        }, 6000);
+function revealSentences() {
+    const container = document.getElementById("sentencesContainer");
+    const flower = document.getElementById("flowerEnd");
 
-        setTimeout(() => {
-            button.style.opacity = 1;
-        }, 17000);
-    }
+    container.innerHTML = "";
+    flower.classList.remove("show");
 
-    const sentences = [
-        "I am still learning how to balance hope and fear.",
-        "How to move without fear of future regret.",
-        "And how two independent worlds can build something steady."
-    ];
-
-    function revealSentences() {
-        const container = document.getElementById("sentencesContainer");
-        const flower = document.getElementById("flowerEnd");
-
-        container.innerHTML = "";
-        flower.classList.remove("show");
-
-        sentences.forEach((text, index) => {
-            const p = document.createElement("div");
-            p.classList.add("sentence");
-            p.innerText = text;
-            container.appendChild(p);
-
-            setTimeout(() => {
-                p.classList.add("show");
-            }, index * 3000);
-        });
+    sentences.forEach((text, index) => {
+        const p = document.createElement("div");
+        p.classList.add("sentence");
+        p.innerText = text;
+        container.appendChild(p);
 
         setTimeout(() => {
-            flower.classList.add("show");
-        }, sentences.length * 3000 + 1000);
-    }
+            p.classList.add("show");
+        }, index * 3000);
+    });
+
+    setTimeout(() => {
+        flower.classList.add("show");
+    }, sentences.length * 3000 + 1000);
+}
+
 </script>
 
 </body>
